@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<link href= "page.css" rel="stylesheet" type="text/css">
+
+<title>Three Card Monty</title>
+
+<body>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"> </script>
+  <script type="text/javascript" src="page.js">
+  
+  </script>
+  
+  <h1>Three Card Monty</h1>
+  <p>The rules are simple. You will be shown three cards;
+  an ace of spades, a queen of spades, and an ace of clubs.
+  The cards will then be turned over and will switch places with
+  each other 10 times. Keep track of where the
+  queen is. After 10 rotations, you will be asked to select 
+  the queen. When you are ready to begin,  
+  click start.</p>
+  
+  <div id="foo">numbers should show up here</div>
+  <h2 id="winner">Are you a winner or not?</h2>
+  <h4>Automated Game:</h4>
+  <p>The automated game is in progress...</p>
+  <button onclick="start()">Start</button>
+  <h4>Manuel Game:</h4>
+  <button onclick="blinkAndMove()">Manual</button>
+  <button onclick="flipDown()">See Checker Side</button>
+  <button onclick="flipUp()">See Card Side</button>
+  
+ 
+  <table id="container"> 
+    <tr>
+      <td class="animate">
+        <img id="face1" class="genface" src="AceSpades.png" alt="Ace of Spades" Height="400px" width="300p">
+        <div class="checker"></div>
+      </td>
+      <td class="animate">
+        <img id="face2" class="genface" src="QueenSpades.png" alt="Queen of Spades" Height="400px" width="300p">
+        <div class="checker"></div>
+      </td>
+      <td class="animate">
+        <img id="face3" class="genface" src="AceClubs.png" alt="Ace of Clubs" Height="400px" width="300p">
+        <div class="checker"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="blink" id="num1">
+        switch
+      </td>
+      <td class="blink" id="num2">
+        switch
+      </td>
+      <td class="blink" id="num3">
+        switch
+      </td>
+    </tr> 
+  </table>
+</body>
+</html>

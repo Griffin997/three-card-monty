@@ -14,7 +14,6 @@
       var real = sampleRange();
       document.getElementById("foo").innerHTML= real;
     }
-  
     
     // Makes the picture of the card appear.
     function appearCard() {
@@ -46,27 +45,36 @@
       appearChecker();
     }
     
-    function sleep(milliseconds) {
-      var start = new Date().getTime();
-      for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
-        break;
-        }
+    var doit = (function () {
+	    return function () {
+      var arr = sampleRange();
+      var col = color();
+      var one = arr[0];
+      var two = arr[1];
+      whichblinkone = "num" + one;
+      whichblinktwo = "num" + two;
+      document.getElementById(whichblinkone).style.backgroundColor=col;
+      document.getElementById(whichblinktwo).style.backgroundColor=col;
+      whichFaceOne = "face" + one;
+      whichFaceTwo = "face" + two;
+      var x = document.getElementById(whichFaceOne).src;
+      var y = document.getElementById(whichFaceTwo).src;
+      document.getElementById(whichFaceOne).src=y;
+      document.getElementById(whichFaceTwo).src=x;
       }
-    }
-    
-    
-    
+    })();
+
     // Main 
     function start() {
-      
-      dissapearCard();
-      appearChecker(); 
-      
-      for (i = 0; i<10; i++){
-        blinkAndMove();
-      }
+      flipDown();
+      blinkAndMove();
+
+      //for (i = 0; i<1; i++){
+      //  doit();
+      //}
+
       checkCorrect();
+      flipUp();
     }
 
     function color(){
@@ -97,6 +105,7 @@
       return hcolor;
     }
 
+
     
     function blinkAndMove() {
       var arr = sampleRange();
@@ -113,25 +122,17 @@
       var y = document.getElementById(whichFaceTwo).src;
       document.getElementById(whichFaceOne).src=y;
       document.getElementById(whichFaceTwo).src=x;
-      sleep(2000);
     }
     
     function checkCorrect() {
-      sleep(20000);
       var answer = prompt("Which card is the queen where 1 is the left most card and 3 is the rightmost card, (1,2,3)");
       whichFace = "face" + answer;
       var x = document.getElementById(whichFace).src;
-      if (x == "QueenSpades.png") {
-        document.getElementById("winner").innerHTML= "You choose the right card! You win!";
+      var filename = x.replace(/^.*[\\\/]/, '') 
+      console.log(filename);
+      if (filename == "QueenSpades.png") {
+        document.getElementById("winner").innerHTML= "You chose the right card! You win!";
       } else {
-        document.getElementById("winner").innerHTML= "You choose the wrong card. Better luck next time.";
+        document.getElementById("winner").innerHTML= "You chose the wrong card. Better luck next time.";
       }
-      dissapearChecker();
-      appearCard();
     }
-    
-    
-    
-    
-    
-      

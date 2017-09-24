@@ -60,7 +60,7 @@ var millis = 1000;
 
     // When the answer button is clicked the start function will be called.
    function start() {
-     var reps = Math.floor(Math.random()*11);
+     var reps = Math.floor(Math.random()*10+1);
      flipDown();
      intervalId = setInterval(blinkAndMove, millis);
      setTimeout(stop, reps * millis);

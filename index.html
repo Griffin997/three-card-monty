@@ -4,29 +4,19 @@
 
 <title>Three Card Monty</title>
 
-<body>
+<body onload="flipUp()">
   <!--script src="//code.jquery.com/jquery-1.11.0.min.js"> </script-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="./page.js"></script>
-  
+
   <h1>Three Card Monty</h1>
-  <p>The rules are simple. You will be shown three cards;
-  an ace of spades, a queen of spades, and an ace of clubs.
-  The cards will then be turned over and will switch places with
-  each other. Keep track of where the
-  queen is. You will be asked to select 
-  the queen. When you are ready to answer,  
-  click answer.</p>
+  <p>Click the GO button when you are ready to play. Observe two cards switching each second. Guess the placement of the queen to win.</p>
+  <p>Two cards will switch places, every second, ten times or less.</p>
+  <p>GOOD LUCK!</p>
   
-  <h2 id="winner">Are you a winner or not?</h2>
-  <h4>Automated Game:</h4>
-  <p>The automated game is in progress...</p>
-  <button onclick="start()">Answer</button>
-  <h4>Manuel Game:</h4>
-  <button onclick="blinkAndMove()">Manual</button>
-  <button onclick="flipDown()">See Checker Side</button>
-  <button onclick="flipUp()">See Card Side</button>
- 
+  <button onclick="start()">GO</button>
+  <h2 id="winner">Get ready to play.</h2>
+  
   <table id="container"> 
     <tr>
       <td class="animate">
@@ -44,13 +34,13 @@
     </tr>
     <tr>
       <td class="blink" id="num1">
-        switch
+        1: SWITCH
       </td>
       <td class="blink" id="num2">
-        switch
+        2: SWITCH
       </td>
       <td class="blink" id="num3">
-        switch
+        3: SWITCH
       </td>
     </tr> 
   </table>
